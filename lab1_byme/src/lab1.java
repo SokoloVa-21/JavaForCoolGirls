@@ -10,44 +10,56 @@ public class lab1 {
         int to = 99;
         System.out.println("Введите два целых числа ;)");
         try {
+            System.out.print("from: ");
             from = scanner.nextInt();
+            System.out.print("to: ");
             to = scanner.nextInt();
         } catch (Exception e) {
             System.out.println("нелегально");
         }
 
+        if (from == to) {
+            System.out.println("Введите два разных числа");
+            return;
+        }
+
         if (from < to) {
             for (int i = from; i <= to; i++) {
-                if (i <= 0) {
-                    i = 1;
+                if (i <= 1) {
+                    i = 2;
                 }
                 if (isPrime(i)) {
-                    System.out.println(i);
+                   System.out.println(i + " ");
                 }
             }
         }
 
 
         if (from > to) {
-            if (to <= 0) {
-                to = 1;
+            if (to <= 1) {
+                to = 2;
             }
-            for (int i = to; i<= from; i--) {
+            for (int i = from; i >= to; i--) {
                 if (isPrime(i)) {
-                    System.out.println(i);
+                    System.out.println(i + " ");
                 }
             }
         }
     }
 
     public static boolean isPrime(int x) {
-        if (x == 1) {
+        if (x == 2 || x == 3) {
+            return true;
+        } else
+        if (x % 2 == 0 || x % 3 == 0) {
             return false;
         }
-        for (int i = 2; i<= x; i++) {
-            if (x % i == 0) {
+        int i = 5;
+        while (i*i <= x) {
+            if (x % i == 0 || x % (i + 2) == 0) {
                 return false;
             }
+            i = i + 6;
         }
         return true;
     }
