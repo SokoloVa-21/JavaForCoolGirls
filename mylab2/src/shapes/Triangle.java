@@ -41,7 +41,21 @@ public class Triangle implements Shape {
 
     @Override
     public float getArea() {
-        return 0;
+        float[] sizeLength = new float[3];
+        for(int i = 0; i < 2; i++)
+        {
+            sizeLength[i] = getLength(vertexes_[i], vertexes_[i + 1]);
+        }
+        sizeLength[2] = getLength(vertexes_[2], vertexes_[0]);
+
+        float p = getPerimeter() / 2;
+
+        float area = 1;
+        for(int i = 0; i < 3; i++)
+        {
+            area *= p - sizeLength[i];
+        }
+        return (float)Math.sqrt(p * area);
     }
 
     @Override
