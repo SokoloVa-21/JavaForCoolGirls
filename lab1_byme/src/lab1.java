@@ -19,33 +19,28 @@ public class lab1 {
         }
 
         if (from == to) {
-            System.out.println("Введите два разных числа");
+            if (isPrime(from)) {
+                System.out.println(from);
+            }
             return;
         }
 
-        if (from < to) {
-            for (int i = from; i <= to; i++) {
-                if (i <= 1) {
-                    i = 2;
-                }
-                if (isPrime(i)) {
-                   System.out.println(i + " ");
-                }
-            }
-        }
-
-
         if (from > to) {
-            if (to <= 1) {
-                to = 2;
-            }
-            for (int i = from; i >= to; i--) {
-                if (isPrime(i)) {
-                    System.out.println(i + " ");
-                }
+            int temp = to;
+            to = from;
+            from = temp;
+        }
+
+        if (from < 1) {
+            from = 2;
+        }
+
+        for (int i = from; i <= to; i++) {
+            if (isPrime(i)) {
+                System.out.println(i + " ");
             }
         }
-    }
+            }
 
     public static boolean isPrime(int x) {
         if (x == 2 || x == 3) {
