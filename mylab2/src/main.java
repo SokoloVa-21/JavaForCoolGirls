@@ -51,7 +51,7 @@ public class main {
 
         float maxArea = MaxArea(shapes);
         for (Shape shape : shapes) {
-            if ((shape.getArea() - maxArea) < 0.0001) {
+            if ((maxArea - shape.getArea()) < 0.00001) {
                 shape.printShape();
             }
         }
