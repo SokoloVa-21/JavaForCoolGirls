@@ -36,12 +36,9 @@ public class main {
                 break;
 
                 case 2: {
-                    shapes[i] = new Rectangle(randInt(0, 33), randInt(0, 33), randInt(0, 360));
+                    shapes[i] = new Rectangle(randInt(1, 33), randInt(1, 33), randInt(1, 360));
                 }
                 break;
-
-                default :
-                    System.out.println("Smt wrong");
             }
 
         }
@@ -54,7 +51,7 @@ public class main {
 
         float maxArea = MaxArea(shapes);
         for (Shape shape : shapes) {
-            if (shape.getArea() == maxArea) {
+            if ((shape.getArea() - maxArea) < 0.0001) {
                 shape.printShape();
             }
         }
@@ -74,6 +71,10 @@ public class main {
     }
 
     public static float MaxArea (Shape[] shapes) {
+        if (shapes.length == 0) {
+            System.out.println("array is empty");
+        }
+
         float maxArea = shapes[0].getArea();
 
         for (Shape shape : shapes) {
